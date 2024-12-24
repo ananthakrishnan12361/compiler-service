@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+
+# npm logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Build directories
+dist/
+build/
+*.tgz
+
+# Temporary files
+*.bak
+*.tmp
+
+# Dependency directories
+jspm_packages/
