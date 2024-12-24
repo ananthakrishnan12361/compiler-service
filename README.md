@@ -58,11 +58,8 @@ A powerful and flexible code compilation service that supports multiple programm
    ```
 
 ## 📝 API Usage
-```
-json
-{
- http://localhost:3000/compile
-}```
+
+http://localhost:3000/compile
 
 ### Request Format
 
