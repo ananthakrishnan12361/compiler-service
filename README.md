@@ -1,49 +1,67 @@
-Code Compiler Service
-This project provides a code compiler service using Node.js and Express for compiling code in multiple languages like Java, Python, JavaScript, Ruby, C, and C++. It uses Docker for containerization and deployment.
+# Code Compiler Service 🚀
 
-Getting Started
-1. Run Docker
-To start the application using Docker, follow these steps:
+A powerful and flexible code compilation service that supports multiple programming languages including Java, Python, JavaScript, Ruby, C, and C++. Built with Node.js and Express, containerized with Docker for easy deployment and scalability.
 
-docker compose build
-docker compose up -d
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This will build and start the containers in detached mode.
+## 🌟 Features
 
-2. Confirm That Your Container is Running
-To check that the container is running, use the following command:
+- Multi-language support (Java, Python, JavaScript, Ruby, C, C++)
+- Containerized with Docker for easy deployment
+- Real-time code compilation and execution
+- Test case validation
+- Detailed error reporting
+- Execution time tracking
+- Secure sandboxed environment
 
-docker ps
+## 🚀 Getting Started
 
-This will display all the active containers. Make sure the container related to the project is listed.
+### Prerequisites
 
-3. Stop Docker
-If you need to stop the container, run:
+- Docker and Docker Compose
+- Node.js (for local development)
 
-docker stop <container_id_or_name>
+### Docker Setup
 
-Replace <container_id_or_name> with the actual ID or name of your container, which you can get from the docker ps command.
+1. **Build and Start Containers**
+   ```bash
+   docker compose build
+   docker compose up -d
+   ```
 
-Development Setup
+2. **Verify Container Status**
+   ```bash
+   docker ps
+   ```
 
-1.After running the Docker container, you can stop it and then bring it down to install necessary packages by running:
+3. **Stop Container**
+   ```bash
+   docker stop <container_id_or_name>
+   ```
 
-docker-compose down
+### Development Setup
 
-2.Once the packages are installed, you can run the development server:
+1. **Install Dependencies**
+   ```bash
+   docker-compose down
+   npm install
+   ```
 
-npm run dev
+2. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
 
-If you are not in a development environment, you can use:
+   For production:
+   ```bash
+   npm start
+   ```
 
-npm start
+## 📝 API Usage
 
-This will start the application.
+### Request Format
 
-Request and Response Example
-Request Body
-To send a request to the compiler service, you need to send a JSON body like the one below:
-
+```json
 {
   "code": "public class Main {\n public static void main(String[] args) {\n System.out.println(\"Hello World\");\n }\n }",
   "language": "java",
@@ -58,11 +76,11 @@ To send a request to the compiler service, you need to send a JSON body like the
     }
   ]
 }
+```
 
+### Success Response
 
-Response Body (Success)
-If the code is successfully compiled and tested, you will receive a response like the following:
-
+```json
 {
   "success": true,
   "executionId": "89fefc86-d367-4658-8ccf-7b9117e6655c",
@@ -88,16 +106,16 @@ If the code is successfully compiled and tested, you will receive a response lik
     }
   ]
 }
+```
 
+### Error Response
 
-Response Body (Error)
-If the code has errors, the response will look like this:
-
+```json
 {
   "success": false,
   "verdict": "CE",
   "error": {
-    "message": "Command failed: javac Main.java\nMain.java:3: error: ';' expected\n System.out.println(\"Hello World\")\n                                  ^\n1 error\n",
+    "message": "Command failed: javac Main.java\nMain.java:3: error: ';' expected\n System.out.println(\"Hello World\")\n ^\n1 error\n",
     "lineNumber": 3,
     "errorLine": " System.out.println(\"Hello World\")",
     "context": [
@@ -129,14 +147,34 @@ If the code has errors, the response will look like this:
     ]
   }
 }
+```
 
+## 🛠️ Technologies Used
 
-In this case, the code has an error (missing semicolon) in line 3, and the error message is provided, along with the context for each line of code.
+- **Backend Framework**: Node.js
+- **Web Framework**: Express
+- **Containerization**: Docker
+- **Supported Languages**: 
+  - Java
+  - Python
+  - JavaScript
+  - Ruby
+  - C
+  - C++
 
+## 🤝 Contributing
 
-Technologies Used
-Node.js: Backend framework for the server.
-Express: Web framework for routing and handling requests.
-Docker: Containerization tool for packaging and running the service.
-Java, Python, JavaScript, Ruby, C, C++: Supported programming languages for code compilation.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Thanks to all contributors who have helped shape this project
+- Inspired by various online code compilation services
